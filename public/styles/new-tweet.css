@@ -1,0 +1,37 @@
+.new-tweet {
+    display: flex;
+    flex-direction: column;
+    
+    align-content: center;
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    direction: ltr;
+}
+
+form {
+    width: 90vw;
+}
+
+label {
+    border-bottom: black;
+    border-bottom-width: 2px;
+    position: absolute;
+}
+
+output {
+    align-items: flex-end;
+    text-align: right;
+}
+
+.counter {
+    justify-content: flex-end;
+    text-align: right;
+    font-family: 'Bungee', sans-serif;
+    font-weight: bold;
+}
+
+button {
+    color: #FFFFFF;
+    background-color: #4056A1;
+    font-family: 'Bungee', sans-serif;
+}

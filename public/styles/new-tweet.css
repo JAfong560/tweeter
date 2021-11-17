@@ -15,7 +15,13 @@ form {
 label {
     border-bottom: black;
     border-bottom-width: 2px;
-    position: absolute;
+    position: relative;
+}
+
+#tweet-text {
+    height: fit-content;
+    width: 90vw;
+    background-color: transparent;
 }
 
 output {

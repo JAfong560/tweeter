@@ -41,3 +41,18 @@ button {
     background-color: #4056A1;
     font-family: 'Bungee', sans-serif;
 }
+
+article:hover {
+  box-shadow: 10px 5px 5px black;  
+}
+
+article header {
+    display: flex;
+    flex-direction: row;
+    max-height: 100px;
+    max-width: 80%;
+}
+
+article i:hover {
+    color: #da791f;
+}

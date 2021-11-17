@@ -28,8 +28,8 @@ body {
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
  main {
-   width: 90vw;
-   background-color: #f4f1ec;
-   /* position: absolute; */
-   align-content: center;
- }
+  width: 90vw;
+  background-color: #f4f1ec;
+  /* position: absolute; */
+  align-content: center;
+}

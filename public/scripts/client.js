@@ -83,7 +83,17 @@ $(document).ready(function() {
         if($(".counter")[0].value > 140) {
             alert("Error: Tweet is longer than 140 characters!")
         }
-        
+        if(($('textarea', this).val()) && ($('textarea', this).val().length < 140)){
+          $(".error").slideUp("slow");
+          $.ajax({
+            type: "POST",
+            url: '/tweets/',
+            data: serialData,
+          }).done(function(response){
+            console.log("Tweets are reloading", response);
+            loadTweets();
+          })
+        }
     });
 
     function loadTweets () {

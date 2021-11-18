@@ -80,10 +80,10 @@ $(document).ready(function() {
         event.preventDefault();
         let serialData = $( this ).serialize();
         console.log( serialData );
-        $.post("/tweets/", serialData, function() {
-            console.log("post form")
-            console.log(serialData)
-        });
+        if($(".counter")[0].value > 140) {
+            alert("Error: Tweet is longer than 140 characters!")
+        }
+        
     });
 
     function loadTweets () {

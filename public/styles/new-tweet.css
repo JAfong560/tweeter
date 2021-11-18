@@ -30,8 +30,7 @@ output {
 }
 
 .counter {
-    justify-content: flex-end;
-    text-align: right;
+    float: right;
     font-family: 'Bungee', sans-serif;
     font-weight: bold;
 }

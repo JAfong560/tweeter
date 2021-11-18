@@ -61,7 +61,7 @@ $(document).ready(function() {
     const $header = $("<header>");
     const $footer = $("<footer>");
     const $content = $("<div>").addClass("content");
-    const $dateOfTweet = $("<h6>").text(tweetData['created_at']);
+    const $dateOfTweet = $("<h6>").text(timeago.format(tweetData['created_at']));
 
     $iconContainer.append($flag, $retweet, $heart);
     $header.append($createAvatar, $createName, $createHandle);
@@ -81,7 +81,7 @@ $(document).ready(function() {
         let serialData = $( this ).serialize();
         console.log( serialData );
         if($(".counter")[0].value > 140) {
-            alert("Error: Tweet is longer than 140 characters!")
+            $('#error-message').text('Error : Too many characters')
         }
         if(($('textarea', this).val()) && ($('textarea', this).val().length < 140)){
           $(".error").slideUp("slow");

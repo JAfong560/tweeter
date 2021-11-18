@@ -75,7 +75,18 @@ $(document).ready(function() {
 
     const $tweet = renderTweets(data);
 
+    $( "form" ).submit(function( event ) {
+        //alert( "Handler for .submit() called." );
+        event.preventDefault();
+        let serialData = $( this ).serialize();
+        console.log( serialData );
+        $.post("/tweets/", serialData, function() {
+            console.log("post form")
+            console.log(serialData)
+        });
+    });
+
     // Test / driver code (temporary)
     console.log($tweet); // to see what it looks like
-    $('#tweets-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
+    $('#tweets-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.   
 });

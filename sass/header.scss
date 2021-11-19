@@ -1,0 +1,17 @@
+header {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-top: 1em;
+    /* bottom: auto; */
+    align-items: center;
+    justify-content: center;
+    height: 401px;
+    width: 100vw;
+    color: white;
+    /* background-color: brown;
+    background-image: "public/images/arabesque.png"; */
+    background-color: #00a183;
+    background-image: url("https://www.transparenttextures.com/patterns/arabesque.png");
+    /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}

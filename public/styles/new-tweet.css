@@ -1,57 +1,56 @@
 .new-tweet {
-    display: flex;
-    flex-direction: column;
-    
-    align-content: center;
-    padding-left: 1.5em;
-    padding-right: 1.5em;
-    direction: ltr;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  padding-left: 1.6em;
+  padding-right: 1.5em;
+  direction: ltr;
 }
 
 form {
-    width: 90vw;
+  width: 90vw;
 }
 
 label {
-    border-bottom: black;
-    border-bottom-width: 2px;
-    position: relative;
+  border-bottom: black;
+  border-bottom-width: 2px;
+  position: relative;
 }
 
 #tweet-text {
-    height: fit-content;
-    width: 90vw;
-    background-color: transparent;
+  height: fit-content;
+  width: 90vw;
+  background-color: transparent;
 }
 
 output {
-    align-items: flex-end;
-    text-align: right;
+  align-items: flex-end;
+  text-align: right;
 }
 
 .counter {
-    float: right;
-    font-family: 'Bungee', sans-serif;
-    font-weight: bold;
+  float: right;
+  font-family: "Bungee", sans-serif;
+  font-weight: bold;
 }
 
 button {
-    color: #FFFFFF;
-    background-color: #4056A1;
-    font-family: 'Bungee', sans-serif;
+  color: #FFFFFF;
+  background-color: #4056A1;
+  font-family: "Bungee", sans-serif;
 }
 
 article:hover {
-  box-shadow: 10px 5px 5px black;  
+  box-shadow: 10px 5px 5px black;
 }
 
 article header {
-    display: flex;
-    flex-direction: row;
-    max-height: 100px;
-    max-width: 80%;
+  display: flex;
+  flex-direction: row;
+  max-height: 100px;
+  max-width: 80%;
 }
 
 article i:hover {
-    color: #da791f;
+  color: #da791f;
 }

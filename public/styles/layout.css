@@ -26,48 +26,45 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
-main {
-  width: 90vw;
+.content {
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+}
+
+.container {
+  display: inherit;
   background-color: #f4f1ec;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 /* Tablet Styles */
 @media only screen and (min-width: 768px) {
-  .feature {
-    width: 33.3%;
-    line-height: 600px;
-  }
-
   .content {
-    width: 66.7%;
-    float: right;
+    flex-direction: column;
+    float: left;
+    width: 100%;
   }
 
-  .footer {
-    clear: right;
+  .header {
+    width: 100%;
+    height: 400px;
   }
 }
 /* Desktop styles */
 @media only screen and (min-width: 1024px) {
-  .hero {
-    width: 33.3%;
+  .content {
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .header {
+    height: 100vh;
+    width: min-content;
     float: left;
   }
 
-  .feature {
-    line-height: 300px;
-  }
-
-  .menu {
-    background-color: #111111;
-    color: #f0f0f0;
-    text-align: left;
-  }
-
-  .main {
-    max-width: 1024px;
-    font-size: 16px;
-    margin: 0 auto;
+  .container {
+    width: 100%;
   }
 }

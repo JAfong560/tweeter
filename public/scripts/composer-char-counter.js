@@ -1,26 +1,18 @@
 $(document).ready(function() {
     // --- our code goes here ---
-
-    // target the area on the DOM with jQuery
-    const textarea = $("#tweet-text")
-    const textstring = textarea[0];
-    const output = $(".counter");
     
-    console.log(textarea);
-    console.log(textstring);
-    console.log(output);
-
-    textarea.on('keyup', function () {
-        let tweetText = textstring.value
-        let counter = output[0];
-
-        if (counter.value > 140) {
-            output.css("color", "red");
+    const charLimit = 140;
+    // target the area on the DOM with jQuery  
+    // turn counter red after character limit
+    $("#tweet-text").on('keyup', function (e) {
+        var tweetlength = e.target.value.length;
+        //console.log(tweetlength);
+        $(".counter").text (charLimit - tweetlength);
+        if (tweetlength > charLimit ) {
+            $(".counter").css("color", "red");
+        } else {
+            $(".counter").css("color", "black");
         }
-        if (counter.value < 140) {
-            output.css("color", "black");
-        }
-        
-        counter.value = tweetText.length;
+        //console.log(this);
     });
 });

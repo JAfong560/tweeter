@@ -1,31 +1,54 @@
-nav {
-    //Position and alignment
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    position: fixed;
-    top: 0%;
-    z-index: 1;
-    //Sizing
-    height: 100px;
-    width: 100vw;
-    padding-left: 1.5em;
-    padding-right: 1.5em;
-    //Content style
-    background-color: #4056A1;
-    color: #FFFFFF;
-    font-family: 'Bungee', sans-serif;
-    font-weight: 400;
+.nav {
+  //Position and alignment
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0%;
+  z-index: 1;
+  //Sizing
+  height: 100px;
+  width: 100%;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  //Content style
+  background-color: #4056A1;
+  color: #FFFFFF;
+  font-family: 'Bungee', sans-serif;
+  font-weight: 400;
 
-    button {
-        display: -webkit-flex;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+  .toggle-tweet {
+    //Position and alignment
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+    //Content style
+    border: 2px black;
+    color: inherit;
+    background-color: inherit;
+
+    :hover {
+        background-color: #213474
+    }
         
-        i {
-            color: orange;
-        }
-    }    
+    i {
+      color: orange;
+      -webkit-animation: mover 1s infinite  alternate;
+      animation: mover 1s infinite  alternate;
+    }
+  }
+        
+  @-webkit-keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(7px); }
+  }
+  @keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(7px); }
+  }
 }
+

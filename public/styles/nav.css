@@ -1,4 +1,4 @@
-nav {
+.nav {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -7,7 +7,7 @@ nav {
   top: 0%;
   z-index: 1;
   height: 100px;
-  width: 100vw;
+  width: 100%;
   padding-left: 1.5em;
   padding-right: 1.5em;
   background-color: #4056A1;
@@ -15,12 +15,37 @@ nav {
   font-family: "Bungee", sans-serif;
   font-weight: 400;
 }
-nav button {
-  display: -webkit-flex;
-  display: flex;
+.nav .toggle-tweet {
+  display: inline-flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  border: 2px black;
+  color: inherit;
+  background-color: inherit;
 }
-nav button i {
+.nav .toggle-tweet :hover {
+  background-color: #213474;
+}
+.nav .toggle-tweet i {
   color: orange;
+  -webkit-animation: mover 1s infinite alternate;
+  animation: mover 1s infinite alternate;
+}
+@-webkit-keyframes mover {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(7px);
+  }
+}
+@keyframes mover {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(7px);
+  }
 }

@@ -6,45 +6,20 @@
 
 $(document).ready(function() {
     // --- our code goes here ---
-    console.log(timeago.format(new Date()));
-    // Test / driver code (temporary). Eventually will get this from the server.
-    const data = [
-        {
-          "user": {
-            "name": "Newton",
-            "avatars": "https://i.imgur.com/73hZDYK.png"
-            ,
-            "handle": "@SirIsaac"
-          },
-          "content": {
-            "text": "If I have seen further it is by standing on the shoulders of giants"
-          },
-          "created_at": 1461116232227
-        },
-        {
-          "user": {
-            "name": "Descartes",
-            "avatars": "https://i.imgur.com/nlhLi3I.png",
-            "handle": "@rd" },
-          "content": {
-            "text": "Je pense , donc je suis"
-          },
-          "created_at": 1461113959088
-        }
-      ]
-    
+    // Render tweets to tweets-container
     function renderTweets(data) {
       $('#tweets-container').empty();
       data.forEach( (tweet) => {
         console.log("Here is my tweet",tweet);
         $('#tweets-container').prepend(createTweetElement(tweet));
       })
-    }
+    };
 
+    // Create tweet HTML based on data
     function createTweetElement(tweetData) {
     const tweet = tweetData.content.text;
     const name = tweetData.user.name;
-    const avatarsImg = tweetData.user.avatars.small;
+    const avatarsImg = tweetData.user.avatars;
     const tweeHandle = tweetData.user.handle;
 
     const $createAvatar = $('<img>').addClass("avatar").attr("src",avatarsImg);
@@ -58,9 +33,10 @@ $(document).ready(function() {
     const $heart = $("<i>").addClass("fas fa-heart");
 
     const $tweetData = $("<article>").addClass("tweet");
-    const $header = $("<header>");
-    const $footer = $("<footer>");
+    const $header = $("<header>").addClass("tweetHeader");
+    const $footer = $("<footer>").addClass("tweetFooter");
     const $content = $("<div>").addClass("content");
+    // Use timeago to format time
     const $dateOfTweet = $("<h6>").text(timeago.format(tweetData['created_at']));
 
     $iconContainer.append($flag, $retweet, $heart);
@@ -69,22 +45,29 @@ $(document).ready(function() {
     $footer.append($iconContainer, $dateOfTweet);
     $tweetData.append($header, $content, $footer);
 
-
     return $tweetData;
-    }
+    };
 
-    const $tweet = renderTweets(data);
-
-    $( "form" ).submit(function( event ) {
+    $("form").submit(function( event ) {
         //alert( "Handler for .submit() called." );
         event.preventDefault();
         let serialData = $( this ).serialize();
-        console.log( serialData );
-        if($(".counter")[0].value > 140) {
-            $('#error-message').text('Error : Too many characters')
+        console.log($('textarea', this).val());
+        //console.log( serialData );
+        //console.log($('#error-message'), this)
+        let errorBox = $(".error");
+
+        if (!$('textarea', this).val()) {
+          console.log('sliiiddde');
+          errorBox.slideDown("slow");
+          $('#error-message').text('Error : Please write something')
         }
-        if(($('textarea', this).val()) && ($('textarea', this).val().length < 140)){
-          $(".error").slideUp("slow");
+        if($('textarea', this).val().length > 140) {
+          errorBox.slideDown("slow");
+          $('#error-message').text('Error : Too many characters')
+        }
+        if(($('textarea', this).val()) && ($('textarea', this).val().length <= 140)){
+          errorBox.slideUp("slow");
           $.ajax({
             type: "POST",
             url: '/tweets/',
@@ -92,22 +75,26 @@ $(document).ready(function() {
           }).done(function(response){
             console.log("Tweets are reloading", response);
             loadTweets();
-          })
-        }
+          });
+        };
     });
 
-    function loadTweets () {
-        $.ajax({
-          type: 'GET',
-          url: "/tweets",
-          dataType: 'JSON'
-        })
-        .done( data => {
-          console.log(data);
-            renderTweets(data)
-        })
-      }
-    loadTweets()
+    $(".toggle-tweet").on('click', function() {
+      $("#compose-tweet").slideToggle("slow");
+    });
 
-      
+    // Use AJAX to get data and render tweets
+    function loadTweets () {
+      $.ajax({
+        type: 'GET',
+        url: "/tweets",
+        dataType: 'JSON'
+      })
+      .done( data => {
+        console.log(data);
+          renderTweets(data)
+      });
+    };
+
+    loadTweets();
 });

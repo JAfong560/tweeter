@@ -1,57 +1,95 @@
 .new-tweet {
-    display: flex;
-    flex-direction: column;
-    
-    align-content: center;
-    padding-left: 1.6em;
-    padding-right: 1.5em;
-    direction: ltr;
-}
+  //Position and alignment
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: flex-start;
 
-form {
-    width: 90vw;
-}
+  //Sizing
+  padding: 1.5em;
+  direction: ltr;
+  width: 100%;
 
-label {
+  //Content style
+  form {
+    margin-bottom: 1em;
+  }
+
+  #tweet-text {
+    height: fit-content;
+    width: 75%;
+    background-color: transparent;
+  }
+  label {
     border-bottom: black;
     border-bottom-width: 2px;
     position: relative;
-}
-
-#tweet-text {
-    height: fit-content;
-    width: 90vw;
-    background-color: transparent;
-}
-
-output {
-    align-items: flex-end;
-    text-align: right;
-}
-
-.counter {
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+    
+  .counter {
     float: right;
     font-family: 'Bungee', sans-serif;
     font-weight: bold;
-}
+  }
 
-button {
+  button {
+    float: left;
     color: #FFFFFF;
     background-color: #4056A1;
     font-family: 'Bungee', sans-serif;
-}
+  }
 
-article:hover {
-  box-shadow: 10px 5px 5px black;  
-}
+  .error{
+    margin-top: 1em;
+    display:none;
+  }
+  
+  #error-message {
+    display:inline;
+    color:red;
+  }
 
-article header {
-    display: flex;
-    flex-direction: row;
-    max-height: 100px;
-    max-width: 80%;
-}
+  .tweet {
+    width: 100%;
+    padding: 1.5em;
+    border: 3px solid black;
+    z-index: 1;
 
-article i:hover {
-    color: #da791f;
+    .tweetHeader {
+      display: flex;
+      flex-direction: row;
+      max-height: 100px;
+      max-width: 80%;
+      align-content: center;
+      justify-content: space-between;
+      z-index: 2;
+
+      .userTwee {
+        float: right;
+      }
+    }
+
+    .tweetContent{
+      z-index: 3;
+    }
+
+    .tweetFooter {
+      z-index: 4;
+      .icons {
+        z-index: 5;
+        float: right;
+        display: flex;
+        justify-content: space-between;
+        width: 4em;
+        :hover {
+          color: #da791f;
+        }
+      }
+    }
+    
+    :hover {
+        box-shadow: 5px 5px 5px #3b3a3a;  
+      }
+  }
 }

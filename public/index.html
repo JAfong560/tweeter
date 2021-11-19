@@ -31,43 +31,47 @@
 
   <body>
     <!-- Top nav bar (fixed) -->
-    <nav>
+    <nav class="nav">
       <span>tweeter</span>
-      <button>
+      <button class="toggle-tweet">
         <span><strong>Write</strong> a new tweet</span>
         <i class="fas fa-angle-double-down"></i>
       </button>
     </nav>
 
+    <div class="content">
     <!-- Header -->
-    <header>
+    <header class="header">
       <div>
-          <img src="/images/profile-hex.png"> 
+        <img src="/images/profile-hex.png"> 
       </div>
       <br>
       <div>
-          <h2>Your Name</h2>
+          <h2><strong>Amy</strong> Mansell</h2>
       </div>
     </header>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
-        <h2>Compose Tweet</h2>
-        <form action="/tweets/" method="post">
-          <label for="tweet-text">What are you humming about?</label>
-          <textarea name="text" id="tweet-text"></textarea>
-          <div>
-            <button type="submit">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">0</output>
-            <section class="error">
-              <h5 id="error-message"></h6>
-            </section>
-          </div>
-        </form>
+        <div id="compose-tweet">
+          <h2>Compose Tweet</h2>
+          <form action="/tweets/" method="post">
+            <label for="tweet-text">What are you humming about?</label>
+            <textarea name="text" id="tweet-text"></textarea>
+            <div>
+              <button type="submit">Tweet</button>
+              <output name="counter" class="counter" for="tweet-text">0</output>
+              <section class="error">
+                <h5 id="error-message"></h6>
+              </section>
+            </div>
+          </form>
+        </div>
         <!-- Append tweets here -->
         <div id="tweets-container"></div>
       </section>
     </main>
+    </div>
   </body>
 </html>

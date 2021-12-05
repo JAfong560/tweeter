@@ -24,7 +24,7 @@ $(document).ready(function() {
     };
     
     // Create tweet HTML based on data
-    function createTweetElement(tweetData) {
+    const createTweetElement = function(tweetData) {
     const tweet = tweetData.content.text;
     const name = tweetData.user.name;
     const avatarsImg = tweetData.user.avatars;
@@ -59,6 +59,12 @@ $(document).ready(function() {
     return $tweetdiv;
     };
 
+    const checkCharLeft = function (currentChar, maxChar) {
+      if (currentChar <= maxChar) {
+        return true;
+      }
+    }
+
     $("form").submit(function( event ) {
         //alert( "Handler for .submit() called." );
         event.preventDefault();
@@ -77,7 +83,7 @@ $(document).ready(function() {
           errorBox.slideDown("slow");
           $('#error-message').text('Error : Too many characters')
         }
-        if(($('textarea', this).val()) && ($('textarea', this).val().length <= 140)){
+        if(($('textarea', this).val()) && checkCharLeft($('textarea', this).val().length, 140)){
           errorBox.slideUp("slow");
           $.ajax({
             type: "POST",

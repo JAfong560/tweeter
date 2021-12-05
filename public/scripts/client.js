@@ -91,7 +91,7 @@ $(document).ready(function() {
             data: serialData,
           }).done(function(response){
             $('#tweet-text').val("");
-            $('.counter').val("140");
+            $('.counter').val("140 char left");
             console.log("Tweets are reloading", response);
             loadLastTweets();
           });

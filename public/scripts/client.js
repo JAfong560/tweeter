@@ -7,14 +7,22 @@
 $(document).ready(function() {
     // --- our code goes here ---
     // Render tweets to tweets-container
-    function renderTweets(data) {
+    const renderTweets = function(data) {
       $('#tweets-container').empty();
       data.forEach( (tweet) => {
-        console.log("Here is my tweet",tweet);
+        console.log("Here is my tweet", tweet);        
         $('#tweets-container').prepend(createTweetElement(tweet));
       })
     };
-
+    
+    const renderLastTweets = function(data) {
+      $('#tweets-container').empty();
+      
+        console.log("Here is my tweet", data);        
+        $('#tweets-container').prepend(createTweetElement(data));
+      
+    };
+    
     // Create tweet HTML based on data
     function createTweetElement(tweetData) {
     const tweet = tweetData.content.text;
@@ -45,7 +53,10 @@ $(document).ready(function() {
     $footer.append($iconContainer, $dateOfTweet);
     $tweetData.append($header, $content, $footer);
 
-    return $tweetData;
+    const $tweetdiv = $("<div>").addClass("tweet_box");
+    $tweetdiv.append($tweetData);
+
+    return $tweetdiv;
     };
 
     $("form").submit(function( event ) {
@@ -70,11 +81,13 @@ $(document).ready(function() {
           errorBox.slideUp("slow");
           $.ajax({
             type: "POST",
-            url: '/tweets/',
+            url: '/new_tweets',
             data: serialData,
           }).done(function(response){
+            $('#tweet-text').val("");
+            $('.counter').val("140");
             console.log("Tweets are reloading", response);
-            loadTweets();
+            loadLastTweets();
           });
         };
     });
@@ -84,7 +97,7 @@ $(document).ready(function() {
     });
 
     // Use AJAX to get data and render tweets
-    function loadTweets () {
+    const loadTweets = function() {
       $.ajax({
         type: 'GET',
         url: "/tweets",
@@ -93,6 +106,19 @@ $(document).ready(function() {
       .done( data => {
         console.log(data);
           renderTweets(data)
+      });
+    };
+
+    // Use AJAX to get data and render latest tweet
+    const loadLastTweets = function() {
+      $.ajax({
+        type: 'GET',
+        url: "/new_tweets",
+        dataType: 'JSON'
+      })
+      .done( data => {
+        console.log(data);
+          renderLastTweets(data)
       });
     };
 

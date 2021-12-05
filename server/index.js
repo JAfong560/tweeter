@@ -28,9 +28,11 @@ require("./lib/date-adjust")();
 // The `tweets-routes` module works similarly: we pass it the `DataHelpers` object
 // so it can define routes that use it to interact with the data layer.
 const tweetsRoutes = require("./routes/tweets")(DataHelpers);
+const new_tweetsRoutes = require("./routes/new_tweets")(DataHelpers);
 
 // Mount the tweets routes at the "/tweets" path prefix:
 app.use("/tweets", tweetsRoutes);
+app.use("/new_tweets", new_tweetsRoutes);
 
 app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);

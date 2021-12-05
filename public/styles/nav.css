@@ -24,6 +24,7 @@
   border: 2px black;
   color: inherit;
   background-color: inherit;
+  font-family: "Source Sans Pro", sans-serif;
 }
 .nav .toggle-tweet :hover {
   background-color: #213474;

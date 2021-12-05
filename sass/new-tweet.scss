@@ -12,6 +12,9 @@
 
   //Content style
   form {
+    display: flex;
+    flex-direction: column;
+    
     margin-bottom: 1em;
   }
 
@@ -28,12 +31,13 @@
   }
     
   .counter {
-    float: right;
+    float: left;
     font-family: 'Bungee', sans-serif;
     font-weight: bold;
   }
 
   button {
+    width: inherit;
     float: left;
     color: #FFFFFF;
     background-color: #4056A1;
@@ -86,10 +90,10 @@
           color: #da791f;
         }
       }
-    }
-    
-    :hover {
-        box-shadow: 5px 5px 5px #3b3a3a;  
-      }
+    } 
   }
 }
+
+.tweet_box:hover {
+    box-shadow: 15px 15px 15px #3b3a3a;  
+  }

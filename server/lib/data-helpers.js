@@ -21,7 +21,15 @@ module.exports = function makeDataHelpers(db) {
         const sortNewestFirst = (a, b) => a.created_at - b.created_at;
         callback(null, db.tweets.sort(sortNewestFirst));
       });
+    },
+    
+    // Get newest tweets in `db`, sorted by first
+    getLastTweets: function(callback) {
+      simulateDelay(() => {
+        const sortNewestFirst = (a, b) => a.created_at - b.created_at;
+        const newTweet = db.tweets.sort(sortNewestFirst);
+        callback(null, newTweet[newTweet.length - 1]);
+      });
     }
-
   };
 }

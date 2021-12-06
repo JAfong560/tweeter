@@ -6,7 +6,7 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Screenshots
 
-!["Screeshot of desktop page layout"](https://github.com/JAfong560/tweeter/blob/master/docs/tweeter-desktop2.png)
+!["Screeshot of desktop page layout"](https://github.com/JAfong560/tweeter/blob/master/docs/tweeter-desktop2.PNG)
 
 !["Screeshot of mobile page layout"](https://github.com/JAfong560/tweeter/blob/master/docs/tweeter-mobile.png)
 
